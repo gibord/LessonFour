@@ -16,4 +16,7 @@
     <string name="_14">*</string>
     <string name="_15">=</string>
     <string name="_16">.</string>
+    <string name="_Red">Red</string>
+    <string name="_Green">Green</string>
+    <string name="_Default">Default</string>
 </resources>

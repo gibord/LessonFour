@@ -3,23 +3,32 @@ package com.example.lessonfour;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // setTheme(R.style.myStyleThemeRed);
+        // setTheme(R.style.MyThemeAll);
+        // setTheme(R.style.myStyleThemeGreen);
+        setTheme(MyApp.currentTheme);
         setContentView(R.layout.activity_main);
         initView();
         setListeners();
+
     }
 
 
-
+    @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
         switch (view.getId()) {
             case (R.id.buttonOne): {
@@ -86,6 +95,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 textInput.setText(Sixteen);
                 break;
             }
+            case (R.id.buttonNumThemeOne): {
+                MyApp.currentTheme = R.style.myStyleThemeRed;
+                break;
+            }
+            case (R.id.buttonNumThemeTwo): {
+                MyApp.currentTheme = R.style.myStyleThemeGreen;
+                break;
+            }
+            case (R.id.buttonNumThemeThree): {
+                MyApp.currentTheme = (R.style.MyThemeAll);
+                break;
+            }
             default: {
 
             }
@@ -109,7 +130,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonFourteen.setOnClickListener(this);
         buttonFifteen.setOnClickListener(this);
         buttonSixteen.setOnClickListener(this);
+        ((MaterialButton) findViewById(R.id.buttonNumThemeOne)).setOnClickListener(this);
+        ((MaterialButton) findViewById(R.id.buttonNumThemeTwo)).setOnClickListener(this);
+        ((MaterialButton) findViewById(R.id.buttonNumThemeThree)).setOnClickListener(this);
+
     }
+
 
     private TextView textInput;
     private int One = 1;

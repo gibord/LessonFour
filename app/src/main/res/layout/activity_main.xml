@@ -243,5 +243,41 @@
         app:layout_constraintStart_toEndOf="@+id/buttonTen"
         app:layout_constraintTop_toBottomOf="@+id/buttonEight" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonNumThemeOne"
+        style="@style/myStyleThemeTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/_Green"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNumThemeTwo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonNumThemeThree"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonNumThemeTwo"
+        style="@style/myStyleThemeTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/_Red"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonNumThemeOne"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonNumThemeThree"
+        style="@style/myStyleThemeTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/_Default"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
