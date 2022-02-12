@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -23,8 +24,11 @@ import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-private int One;
-private String Two;
+    private int One;
+    private String Two;
+    public static String KEY_ONE = "Key_ONE";
+    public static int Code = 12;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,25 +42,26 @@ private String Two;
 
     }
 
-/*   @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("One", One);
-        outState.putString("Two", Two);
+    /*   @Override
+        protected void onSaveInstanceState(@NonNull Bundle outState) {
+            super.onSaveInstanceState(outState);
+            outState.putInt("One", One);
+            outState.putString("Two", Two);
 
-    }
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        One = savedInstanceState.getInt("One");
-        textInput.setText(String.format("%d", One));
-        Two = savedInstanceState.getString("Two");
-        textInput.setText(String.format("%d", Two));
-    }
-*/
+        }
+        @Override
+        protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+            super.onRestoreInstanceState(savedInstanceState);
+            One = savedInstanceState.getInt("One");
+            textInput.setText(String.format("%d", One));
+            Two = savedInstanceState.getString("Two");
+            textInput.setText(String.format("%d", Two));
+        }
+    */
     @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
         Button btn = (Button) view;
+        Intent Intent = new Intent(MainActivity.this, SecondActivity.class);
         textInput.setText(String.format("%s%s", textInput.getText().toString(), btn.getText().toString()));
         switch (view.getId()) {
             case (R.id.buttonOne):
@@ -92,12 +97,25 @@ private String Two;
                 recreate();
                 break;
             }
+            case (R.id.buttonSecondActivity): {
+                Intent.putExtra(KEY_ONE, "Кто сдесь?");
+                startActivityForResult(Intent, 12);
+                break;
+            }
             default: {
 
             }
         }
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Code &&resultCode==RESULT_OK){
+            if(data.getExtras()!=null)
+                textInput.setText(data.getStringExtra(SecondActivity.KEY_TWO));
+        }
+
+    }
     private void setListeners() {
         buttonOne.setOnClickListener(this);
         buttonTwo.setOnClickListener(this);
