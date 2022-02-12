@@ -6,4 +6,5 @@
     <dimen name="heightPNG_vertical">200dp</dimen>
     <dimen name="heightPNG_horizontal">100dp</dimen>
     <dimen name="widthPNG_horizontal">100dp</dimen>
+    <dimen name="HeightHorisontal">50dp</dimen>
 </resources>

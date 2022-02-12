@@ -5,15 +5,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+private int One;
+private String Two;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,84 +38,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+/*   @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("One", One);
+        outState.putString("Two", Two);
 
+    }
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        One = savedInstanceState.getInt("One");
+        textInput.setText(String.format("%d", One));
+        Two = savedInstanceState.getString("Two");
+        textInput.setText(String.format("%d", Two));
+    }
+*/
     @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
+        Button btn = (Button) view;
+        textInput.setText(String.format("%s%s", textInput.getText().toString(), btn.getText().toString()));
         switch (view.getId()) {
-            case (R.id.buttonOne): {
-                textInput.setText(String.format("%d", One));
-                break;
-            }
-            case (R.id.buttonTwo): {
-                textInput.setText(String.format("%d", Two));
-                break;
-            }
-            case (R.id.buttonThree): {
-                textInput.setText(String.format("%d", Three));
-                break;
-            }
-            case (R.id.buttonFour): {
-                textInput.setText(String.format("%d", Four));
-                break;
-            }
-            case (R.id.buttonFive): {
-                textInput.setText(String.format("%d", Five));
-                break;
-            }
-            case (R.id.buttonSix): {
-                textInput.setText(String.format("%d", Six));
-                break;
-            }
-            case (R.id.buttonSeven): {
-                textInput.setText(String.format("%d", Seven));
-                break;
-            }
-            case (R.id.buttonEight): {
-                textInput.setText(String.format("%d", Eight));
-                break;
-            }
-            case (R.id.buttonNine): {
-                textInput.setText(String.format("%d", Nine));
-                break;
-            }
-            case (R.id.buttonTen): {
-                textInput.setText(String.format("%d", Ten));
-                break;
-            }
-            case (R.id.buttonEleven): {
-                textInput.setText(Eleven);
-                break;
-            }
-            case (R.id.buttonTwelve): {
-                textInput.setText(Twelve);
-                break;
-            }
-            case (R.id.buttonThirteen): {
-                textInput.setText(Thirteen);
-                break;
-            }
-            case (R.id.buttonFourteen): {
-                textInput.setText(Fourteen);
-                break;
-            }
-            case (R.id.buttonFifteen): {
-                textInput.setText(Fifteen);
-                break;
-            }
+            case (R.id.buttonOne):
+            case (R.id.buttonTwo):
+            case (R.id.buttonTen):
+            case (R.id.buttonNine):
+            case (R.id.buttonThree):
+            case (R.id.buttonFour):
+            case (R.id.buttonFive):
+            case (R.id.buttonSix):
+            case (R.id.buttonSeven):
+            case (R.id.buttonEight):
+            case (R.id.buttonEleven):
+            case (R.id.buttonTwelve):
+            case (R.id.buttonThirteen):
+            case (R.id.buttonFourteen):
+            case (R.id.buttonFifteen):
             case (R.id.buttonSixteen): {
-                textInput.setText(Sixteen);
                 break;
             }
             case (R.id.buttonNumThemeOne): {
                 MyApp.currentTheme = R.style.myStyleThemeRed;
+                recreate();
                 break;
             }
             case (R.id.buttonNumThemeTwo): {
                 MyApp.currentTheme = R.style.myStyleThemeGreen;
+                recreate();
                 break;
             }
             case (R.id.buttonNumThemeThree): {
                 MyApp.currentTheme = (R.style.MyThemeAll);
+                recreate();
                 break;
             }
             default: {
@@ -133,43 +118,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ((MaterialButton) findViewById(R.id.buttonNumThemeOne)).setOnClickListener(this);
         ((MaterialButton) findViewById(R.id.buttonNumThemeTwo)).setOnClickListener(this);
         ((MaterialButton) findViewById(R.id.buttonNumThemeThree)).setOnClickListener(this);
+        ((MaterialButton) findViewById(R.id.buttonSecondActivity)).setOnClickListener(this);
 
     }
 
 
     private TextView textInput;
-    private int One = 1;
     private Button buttonOne;
-    private int Two = 2;
     private Button buttonTwo;
-    private int Three = 3;
     private Button buttonThree;
-    private int Four = 4;
     private Button buttonFour;
-    private int Five = 5;
     private Button buttonFive;
-    private int Six = 6;
     private Button buttonSix;
-    private int Seven = 7;
     private Button buttonSeven;
     private Button buttonEight;
-    private int Eight = 8;
     private Button buttonNine;
-    private int Nine = 9;
     private Button buttonTen;
-    private int Ten = 0;
     private Button buttonEleven;
-    private String Eleven = "+";
     private Button buttonTwelve;
-    private String Twelve = "-";
     private Button buttonThirteen;
-    private String Thirteen = "/";
     private Button buttonFourteen;
-    private String Fourteen = "*";
     private Button buttonFifteen;
-    private String Fifteen = "=";
     private Button buttonSixteen;
-    private String Sixteen = ".";
+    private Button buttonSecondActivity;
 
 
     private void initView() {
