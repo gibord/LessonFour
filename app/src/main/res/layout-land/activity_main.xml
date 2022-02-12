@@ -256,8 +256,8 @@
         android:textSize="@dimen/button_text_size"
         app:layout_constraintBottom_toTopOf="@+id/buttonNumThemeTwo"
         app:layout_constraintTop_toBottomOf="@+id/buttonNumThemeThree"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonNumThemeTwo"
@@ -268,8 +268,8 @@
         android:textSize="@dimen/button_text_size"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/buttonNumThemeOne"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonNumThemeThree"
@@ -280,8 +280,8 @@
         android:textSize="@dimen/button_text_size"
         app:layout_constraintBottom_toTopOf="@+id/buttonNumThemeOne"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
